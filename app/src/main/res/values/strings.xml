@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AndroidTestSample</string>
+    <string name="sign_plus">+</string>
+    <string name="sign_equal">=</string>
+</resources>
