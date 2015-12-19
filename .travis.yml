@@ -1,5 +1,7 @@
 language: android
 
+sudo: false
+
 env:
   global:
     - GRADLE_OPTS="-Xmx512m -XX:MaxPermSize=512m"
@@ -8,16 +10,19 @@ env:
 android:
   components:
     - platform-tools
+    - tools
     - build-tools-23.0.2
     - android-23
     - extra-android-support
-    - extra-android-m2repository
     - extra-google-m2repository
-    - sys-img-armeabi-v7a-android-23
+    - extra-android-m2repository
+    - sys-img-armeabi-v7a-android-19
+
+before_install:
+  - echo no | android create avd --force -n test -t android-19 --abi armeabi-v7a
+  - emulator -avd test -no-skin -no-audio -no-window &
 
 before_script:
-  - echo no | android create avd --force -n test -t android-23 --abi armeabi-v7a
-  - emulator -avd test -no-skin -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
 

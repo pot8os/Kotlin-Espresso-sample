@@ -10,7 +10,7 @@ All codes are written in Kotlin.
 ## You can see...
 
 - how to implement UI tests using Espresso and logic tests using JUnit4
-- fundamental of Kotlin language
+- fundamental Kotlin language
 
 ## version
 
@@ -32,8 +32,8 @@ A calculator that can be addition only..
 |1. Set Test Artifact in Build Variants|Set `Android Instrumentation Tests`<br/><br/>![Espresso](espresso.png)|Set `Unit Tests`<br/><br/>![UnitTest](unittest.png)|
 |2. Do tests|Run task `connectedCheck`<br/><br/>![Run Task](runtask.png)|Open project tree and right click at `CalculatorTest` and select `Run "CalculatorTest"`<br/><br/>![Run Unit Test](runjunit.png)|
 ||||
-|target path|`src/androidTest/kotlin`|`src/test/kotlin`|
-|dependencies|`androidTestCompile`|`testCompile`|
+|location of test files|`src/androidTest/kotlin`|`src/test/kotlin`|
+|applied dependencies|`androidTestCompile`|`testCompile`|
 
 ## License
 
