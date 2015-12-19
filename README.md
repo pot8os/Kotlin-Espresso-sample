@@ -1,6 +1,8 @@
 Kotlin Test Sample
 ===================================================
 
+[![Build Status](https://travis-ci.org/pot8os/Kotlin-test-sample.svg)](https://travis-ci.org/pot8os/Kotlin-test-sample)
+
 This is very simple project for Android App using [Kotlin](https://github.com/JetBrains/kotlin) and [Espresso](https://developer.android.com/intl/ja/tools/testing-support-library/index.html#Espresso). It also includes an unit test case which doesn't require Android UI.
 
 All codes are written in Kotlin.
