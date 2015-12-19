@@ -1,4 +1,4 @@
-package net.pot8os.androidtestsample
+package net.pot8os.kotlintestsample
 
 import android.app.AlertDialog
 import android.os.Bundle

@@ -6,7 +6,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "net.pot8os.androidtestsample"
+        applicationId "net.pot8os.kotlintestsample"
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
@@ -21,6 +21,8 @@ android {
     }
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
     }
 }
 

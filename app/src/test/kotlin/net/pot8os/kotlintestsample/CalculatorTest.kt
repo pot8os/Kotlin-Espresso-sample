@@ -1,4 +1,4 @@
-package net.pot8os.androidtestsample
+package net.pot8os.kotlintestsample
 
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.CoreMatchers.not

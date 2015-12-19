@@ -1,4 +1,4 @@
-package net.pot8os.androidtestsample
+package net.pot8os.kotlintestsample
 
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.action.ViewActions.click

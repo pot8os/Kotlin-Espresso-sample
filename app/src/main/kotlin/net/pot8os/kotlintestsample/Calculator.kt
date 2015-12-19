@@ -1,4 +1,4 @@
-package net.pot8os.androidtestsample
+package net.pot8os.kotlintestsample
 
 /**
  * @author So Nakamura, 2015/12/19
