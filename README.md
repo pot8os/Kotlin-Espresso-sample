@@ -3,37 +3,38 @@ Kotlin Test Sample
 
 [![Build Status](https://travis-ci.org/pot8os/Kotlin-test-sample.svg)](https://travis-ci.org/pot8os/Kotlin-test-sample)
 
-This is very simple project for Android App using [Kotlin](https://github.com/JetBrains/kotlin) and [Espresso](https://developer.android.com/intl/ja/tools/testing-support-library/index.html#Espresso). It also includes an unit test case which doesn't require Android UI.
+This is a simple project for Android Studio using [Kotlin](https://github.com/JetBrains/kotlin) and [Espresso](https://developer.android.com/intl/ja/tools/testing-support-library/index.html#Espresso). It also includes an unit test case which doesn't require Android UI.
 
 All codes are written in Kotlin.
 
-## You can see...
+## You can learn
 
-- how to implement UI tests using Espresso and logic tests using JUnit4
-- fundamental Kotlin language
+- How to implement UI tests using Espresso and logic tests using JUnit4
+- Fundamental Kotlin language
 
-## version
+## Used version
 
 - Kotlin: 1.0.0-beta-3595
 - Espresso: 2.2.1 (espresso-core)
 
 ## Test target
 
-A calculator that can be addition only..
+A (bad) calculator that can be addition only..
 
 <img src="screen.png" width="384">
 
-## Usage
+## Run tests
+
+Note: You have to connect a device as test target in advance. Both of simulator and real are good.
 
 ### Use Android Studio
 
 |   |UI Test (use Espresso)|Logic Test (use JUnit4)|
 |---|----------------------|-----------------------|
-|1. Set Test Artifact in Build Variants|Set `Android Instrumentation Tests`<br/><br/>![Espresso](espresso.png)|Set `Unit Tests`<br/><br/>![UnitTest](unittest.png)|
-|2. Do tests|Run task `connectedCheck`<br/><br/>![Run Task](runtask.png)|Open project tree and right click at `CalculatorTest` and select `Run "CalculatorTest"`<br/><br/>![Run Unit Test](runjunit.png)|
-||||
-|location of test files|`src/androidTest/kotlin`|`src/test/kotlin`|
-|applied dependencies|`androidTestCompile`|`testCompile`|
+|gradle task|`connectedCheck`<br/><br/>![Run Task](runtask.png)|`testDebugUnitTest`<br/><br/>![Run Unit Test](runjunit.png)|
+|corresponded `Test Artifact` in `Build Variants`|`Android Instrumentation Tests`<br/><br/>![Espresso](espresso.png)|`Unit Tests`<br/><br/>![UnitTest](unittest.png)|
+|path of test files|`src/androidTest/kotlin`|`src/test/kotlin`|
+|prefix of dependencies in `build.gradle`|`androidTestCompile`|`testCompile`|
 
 ## License
 
