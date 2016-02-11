@@ -1,13 +1,13 @@
-Kotlin Test Sample
+Kotlin-Espresso-Sample
 ===================================================
 
-[![Build Status](https://travis-ci.org/pot8os/Kotlin-test-sample.svg)](https://travis-ci.org/pot8os/Kotlin-test-sample)
+[![Build Status](https://travis-ci.org/pot8os/Kotlin-Espresso-sample.svg)](https://travis-ci.org/pot8os/Kotlin-Espresso-sample)
 
-This is a simple project for Android Studio using [Kotlin](https://github.com/JetBrains/kotlin) and [Espresso](https://developer.android.com/intl/ja/tools/testing-support-library/index.html#Espresso). It also includes an unit test case which doesn't require Android UI.
+This is a simple project for Android Studio using [Kotlin](https://github.com/JetBrains/kotlin) and [Espresso](https://developer.android.com/intl/ja/tools/testing-support-library/index.html#Espresso). It also includes typical unit tests using JUnit4.
 
 All codes are written in Kotlin.
 
-## You can learn
+## You can learn from this repo:
 
 - How to implement UI tests using Espresso and logic tests using JUnit4
 - Fundamental Kotlin language
@@ -17,17 +17,17 @@ All codes are written in Kotlin.
 - Kotlin: 1.0.0-beta-3595
 - Espresso: 2.2.1 (espresso-core)
 
-## Test target
+## An app as a test target
 
 A (bad) calculator that can be addition only..
 
 <img src="screen.png" width="384">
 
-## Run tests
+## Do tests
 
 Note: You have to connect a device as test target in advance. Both of simulator and real are good.
 
-### Use Android Studio
+### Using Android Studio
 
 |   |UI Test (use Espresso)|Logic Test (use JUnit4)|
 |---|----------------------|-----------------------|
