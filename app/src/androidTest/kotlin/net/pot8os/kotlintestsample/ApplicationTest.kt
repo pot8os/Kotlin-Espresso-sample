@@ -2,12 +2,11 @@ package net.pot8os.kotlintestsample
 
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.action.ViewActions.click
-import android.support.test.espresso.action.ViewActions.typeText
 import android.support.test.espresso.assertion.ViewAssertions.matches
-import android.support.test.espresso.matcher.ViewMatchers.*
+import android.support.test.espresso.matcher.ViewMatchers.withId
+import android.support.test.espresso.matcher.ViewMatchers.withText
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
-import org.hamcrest.Matchers.startsWith
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -19,16 +18,57 @@ import org.junit.runner.RunWith
 class ApplicationTest {
 
     @Rule @JvmField
-    public val activity = ActivityTestRule<MainActivity>(MainActivity::class.java)
+    val activity = ActivityTestRule<MainActivity>(MainActivity::class.java)
 
     @Test
-    fun basicTest() {
-        onView(withId(R.id.calcButton)).perform(click())
-        onView(withText(startsWith("Invalid"))).check(matches(isDisplayed()))
-        onView(withId(android.R.id.button1)).perform(click())
-        onView(withId(R.id.arg1)).perform(typeText("12345"))
-        onView(withId(R.id.arg2)).perform(typeText("54321"))
-        onView(withId(R.id.calcButton)).perform(click())
-        onView(withId(R.id.answer)).check(matches(withText("66666")))
+    fun testAdd() {
+        onView(withId(R.id.button_1)).perform(click())
+        onView(withId(R.id.button_2)).perform(click())
+        onView(withId(R.id.button_3)).perform(click())
+        onView(withId(R.id.button_add)).perform(click())
+        onView(withId(R.id.button_3)).perform(click())
+        onView(withId(R.id.button_2)).perform(click())
+        onView(withId(R.id.button_1)).perform(click())
+        onView(withId(R.id.button_calc)).perform(click())
+        onView(withId(R.id.field)).check(matches(withText("${123 + 321}")))
+    }
+
+    @Test
+    fun testSub() {
+        onView(withId(R.id.button_9)).perform(click())
+        onView(withId(R.id.button_9)).perform(click())
+        onView(withId(R.id.button_9)).perform(click())
+        onView(withId(R.id.button_sub)).perform(click())
+        onView(withId(R.id.button_3)).perform(click())
+        onView(withId(R.id.button_3)).perform(click())
+        onView(withId(R.id.button_3)).perform(click())
+        onView(withId(R.id.button_calc)).perform(click())
+        onView(withId(R.id.field)).check(matches(withText("${999 - 333}")))
+    }
+
+    @Test
+    fun testMulti() {
+        onView(withId(R.id.button_1)).perform(click())
+        onView(withId(R.id.button_0)).perform(click())
+        onView(withId(R.id.button_0)).perform(click())
+        onView(withId(R.id.button_multi)).perform(click())
+        onView(withId(R.id.button_2)).perform(click())
+        onView(withId(R.id.button_0)).perform(click())
+        onView(withId(R.id.button_0)).perform(click())
+        onView(withId(R.id.button_calc)).perform(click())
+        onView(withId(R.id.field)).check(matches(withText("${100 * 200}")))
+    }
+
+    @Test
+    fun testDiv() {
+        onView(withId(R.id.button_3)).perform(click())
+        onView(withId(R.id.button_3)).perform(click())
+        onView(withId(R.id.button_3)).perform(click())
+        onView(withId(R.id.button_divide)).perform(click())
+        onView(withId(R.id.button_1)).perform(click())
+        onView(withId(R.id.button_0)).perform(click())
+        onView(withId(R.id.button_0)).perform(click())
+        onView(withId(R.id.button_calc)).perform(click())
+        onView(withId(R.id.field)).check(matches(withText("${333 / 100.0}")))
     }
 }
