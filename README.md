@@ -14,12 +14,12 @@ All codes are written in Kotlin.
 
 ## Used version
 
-- Kotlin: 1.0.0-beta-3595
-- Espresso: 2.2.1 (espresso-core)
+- Kotlin: 1.0.3
+- Espresso: 2.2.2 (espresso-core)
 
 ## An app as a test target
 
-A (bad) calculator that can be addition only..
+A simple calculator
 
 <img src="screen.png" width="384">
 
