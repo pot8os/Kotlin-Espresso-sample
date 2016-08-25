@@ -10,8 +10,8 @@ All codes are written in Kotlin.
 ## What you can learn from this repo
 
 - How to implement UI tests using Espresso and logic tests using JUnit4
-- Fundamental Kotlin language
-- We can implement caluclator [less than 100 line codes](https://github.com/pot8os/Kotlin-Espresso-sample/blob/master/app/src/main/kotlin/net/pot8os/kotlintestsample/MainActivity.kt) using RxJava!
+- Fundamental Kotlin language and basic usage
+- Thanks to RxJava, we can implement a calculator by [less than 100 lines](https://github.com/pot8os/Kotlin-Espresso-sample/blob/master/app/src/main/kotlin/net/pot8os/kotlintestsample/MainActivity.kt)! :rocket:
 
 ## Library version
 
