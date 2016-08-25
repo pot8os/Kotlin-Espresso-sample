@@ -7,25 +7,26 @@ This is a simple project for Android Studio using [Kotlin](https://github.com/Je
 
 All codes are written in Kotlin.
 
-## You can learn from this repo:
+## What you can learn from this repo
 
 - How to implement UI tests using Espresso and logic tests using JUnit4
 - Fundamental Kotlin language
+- We can implement caluclator [less than 100 line codes](https://github.com/pot8os/Kotlin-Espresso-sample/blob/master/app/src/main/kotlin/net/pot8os/kotlintestsample/MainActivity.kt) using RxJava!
 
-## Used version
+## Library version
 
 - Kotlin: 1.0.3
 - Espresso: 2.2.2 (espresso-core)
 
 ## An app as a test target
 
-A simple calculator
+Super very simple calculator.. :)
 
 <img src="screen.png" width="384">
 
 ## Do tests
 
-Note: You have to connect a device as test target in advance. Both of simulator and real are good.
+Note: You have to connect a device as test target in advance. Both of simulator and real one are good.
 
 ### Using Android Studio
 
