@@ -9,33 +9,32 @@ All codes are written in Kotlin.
 
 ## What you can learn from this repo
 
-- How to implement UI tests using Espresso and logic tests using JUnit4
+- How to implement `UI tests` using Espresso and `logic tests (without UI)` using JUnit4
 - Fundamental Kotlin language and basic usage
 - Thanks to RxJava, we can implement a calculator by [less than 100 lines](https://github.com/pot8os/Kotlin-Espresso-sample/blob/master/app/src/main/kotlin/net/pot8os/kotlintestsample/MainActivity.kt)! :rocket:
 
 ## Library version
 
-- Kotlin: 1.0.3
+- Kotlin: 1.0.6
 - Espresso: 2.2.2 (espresso-core)
 
 ## An app as a test target
 
 Super very simple calculator.. :)
 
-<img src="screen.png" width="384">
+<img src="img/screen.png" width="384">
 
 ## Do tests
 
-Note: You have to connect a device as test target in advance. Both of simulator and real one are good.
+Note: You should have a connected device in advance before running `UI tests`. It doesn't matter if it's a simulator and a real one.
 
 ### Using Android Studio
 
-|   |UI Test (use Espresso)|Logic Test (use JUnit4)|
+|   |UI Tests (using Espresso)|Logic Tests (using JUnit4)|
 |---|----------------------|-----------------------|
-|gradle task|`connectedCheck`<br/><br/>![Run Task](runtask.png)|`testDebugUnitTest`<br/><br/>![Run Unit Test](runjunit.png)|
-|corresponded `Test Artifact` in `Build Variants`|`Android Instrumentation Tests`<br/><br/>![Espresso](espresso.png)|`Unit Tests`<br/><br/>![UnitTest](unittest.png)|
-|path of test files|`src/androidTest/kotlin`|`src/test/kotlin`|
-|prefix of dependencies in `build.gradle`|`androidTestCompile`|`testCompile`|
+|gradle task name|`connectedAndroidTest`<br/><br/>![Run Task](img/uitask.png)|`testDebugUnitTest`<br/><br/>![Run Unit Test](img/unittask.png)|
+|root path of test files|`src/androidTest/kotlin`<br/>![Path](img/uitest_path.png)|`src/test/kotlin`<br/>![Path](img/unittest_path.png)|
+|prefix of dependencies defined in `build.gradle`|`androidTestCompile`|`testCompile`|
 
 ## License
 
