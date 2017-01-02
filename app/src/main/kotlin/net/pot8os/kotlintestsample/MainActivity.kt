@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private val formatter = DecimalFormat("#.#").apply {
+    private val formatter = DecimalFormat("#,###.#").apply {
         minimumFractionDigits = 0
         maximumFractionDigits = 8
     }
@@ -44,27 +44,29 @@ class MainActivity : AppCompatActivity() {
                 binding.button1, binding.button2, binding.button3,
                 binding.button4, binding.button5, binding.button6,
                 binding.button7, binding.button8, binding.button9)) {
-            RxView.clicks(button).subscribe {
-                field = field.multiply(BigDecimal(10)).plus(BigDecimal(button.tag.toString().toInt()))
-                binding.field.setText(formatter.format(field))
-            }
+            RxView.clicks(button)
+                    .subscribe {
+                        field = field.multiply(BigDecimal(10)).plus(BigDecimal(button.tag.toString().toInt()))
+                        binding.field.setText(formatter.format(field))
+                    }
         }
 
         for (button in arrayOf(binding.buttonAllClear,
                 binding.buttonAdd, binding.buttonSub,
                 binding.buttonMulti, binding.buttonDivide)) {
-            RxView.clicks(button).subscribe {
-                currentFigure = Figure.valueOf(button.tag.toString())
-                stack = if (currentFigure != Figure.NONE) {
-                    field
-                } else {
-                    BigDecimal.ZERO
-                }
-                field = BigDecimal.ZERO
-                if (stack == BigDecimal.ZERO) {
-                    binding.field.setText(formatter.format(field))
-                }
-            }
+            RxView.clicks(button)
+                    .subscribe {
+                        currentFigure = Figure.valueOf(button.tag.toString())
+                        stack = if (currentFigure != Figure.NONE) {
+                            field
+                        } else {
+                            BigDecimal.ZERO
+                        }
+                        field = BigDecimal.ZERO
+                        if (stack == BigDecimal.ZERO) {
+                            binding.field.setText(formatter.format(field))
+                        }
+                    }
         }
 
         RxView.clicks(binding.buttonCalc).subscribe {
