@@ -3,9 +3,8 @@ Kotlin-Espresso-Sample
 
 [![Build Status](https://travis-ci.org/pot8os/Kotlin-Espresso-sample.svg)](https://travis-ci.org/pot8os/Kotlin-Espresso-sample)
 
-This is a simple project for Android Studio using [Kotlin](https://github.com/JetBrains/kotlin) and [Espresso](https://developer.android.com/intl/ja/tools/testing-support-library/index.html#Espresso). It also includes typical unit tests using JUnit4.
-
-All codes are written in Kotlin.
+This is a simple project for Android Studio using [Kotlin](https://github.com/JetBrains/kotlin) and [Espresso](https://developer.android.com/intl/ja/tools/testing-support-library/index.html#Espresso) for UI tests. It also includes typical unit tests using JUnit4.
+All codes are written in Kotlin :tada:
 
 ## What you can learn from this repo
 
@@ -15,12 +14,13 @@ All codes are written in Kotlin.
 
 ## Library version
 
-- Kotlin: 1.0.6
+- Kotlin: 1.1.3-2
+- RxJava: 2.1.1
 - Espresso: 2.2.2 (espresso-core)
 
 ## An app as a test target
 
-Super very simple calculator.. :)
+There is very simple calculator :)
 
 <img src="img/screen.png" width="384">
 
