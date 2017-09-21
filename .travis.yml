@@ -5,7 +5,7 @@ jdk:
 
 env:
   global:
-    - GRADLE_OPTS="-Xmx512m -XX:MaxPermSize=512m"
+    - GRADLE_OPTS="-Xmx1024m -XX:MaxPermSize=1024m"
     - MALLOC_ARENA_MAX=2
     - ADB_INSTALL_TIMEOUT=10
 

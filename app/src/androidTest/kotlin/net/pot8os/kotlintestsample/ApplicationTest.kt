@@ -10,6 +10,7 @@ import android.support.test.runner.AndroidJUnit4
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import java.text.DecimalFormat
 
 /**
  * @author So Nakamura, 2015/12/19
@@ -17,7 +18,8 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class ApplicationTest {
 
-    @Rule @JvmField
+    @Rule
+    @JvmField
     val activity = ActivityTestRule<MainActivity>(MainActivity::class.java)
 
     @Test
@@ -56,7 +58,8 @@ class ApplicationTest {
         onView(withId(R.id.button_0)).perform(click())
         onView(withId(R.id.button_0)).perform(click())
         onView(withId(R.id.button_calc)).perform(click())
-        onView(withId(R.id.field)).check(matches(withText("${100 * 200}")))
+        val formatter = DecimalFormat("#,###")
+        onView(withId(R.id.field)).check(matches(withText(formatter.format(100 * 200))))
     }
 
     @Test

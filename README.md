@@ -14,11 +14,11 @@ All codes are written in Kotlin :tada:
 
 ## Library version
 
-- Kotlin: 1.1.3-2
+- Kotlin: 1.1.4-3
 - RxJava: 2.1.1
-- Espresso: 2.2.2 (espresso-core)
+- Espresso: 3.0.1 (espresso-core)
 
-## An app as a test target
+## The test target app
 
 There is very simple calculator :)
 
