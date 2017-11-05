@@ -13,13 +13,21 @@ class CalculatorTest {
 
     @Test
     fun figureTest() {
-        assertThat(MainActivity.Figure.ADD.calc(BigDecimal(100), BigDecimal(200)),
-                `is`(BigDecimal(300)))
-        assertThat(MainActivity.Figure.SUB.calc(BigDecimal(10), BigDecimal(4)),
-                `is`(not(BigDecimal(5))))
-        assertThat(MainActivity.Figure.MULTI.calc(BigDecimal(5), BigDecimal(5)),
-                `is`(BigDecimal(25)))
-        assertThat(MainActivity.Figure.DIV.calc(BigDecimal(10), BigDecimal(3)),
-                `is`(not(BigDecimal(3.33333333))))
+        assertThat(
+                MainActivity.Figure.ADD.calc(BigDecimal(100), BigDecimal(200)),
+                `is`(BigDecimal(300))
+        )
+        assertThat(
+                MainActivity.Figure.SUB.calc(BigDecimal(10), BigDecimal(4)),
+                `is`(not(BigDecimal(5)))
+        )
+        assertThat(
+                MainActivity.Figure.MULTI.calc(BigDecimal(5), BigDecimal(5)),
+                `is`(BigDecimal(25))
+        )
+        assertThat(
+                MainActivity.Figure.DIV.calc(BigDecimal(10), BigDecimal(3)),
+                `is`(not(BigDecimal(3.33333333)))
+        )
     }
 }

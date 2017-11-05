@@ -5,34 +5,30 @@ jdk:
 
 env:
   global:
-    - GRADLE_OPTS="-Xmx1024m -XX:MaxPermSize=1024m"
-    - MALLOC_ARENA_MAX=2
+    - ANDROID_SDK_ROOT=/opt/android
     - ADB_INSTALL_TIMEOUT=10
 
-android:
-  components:
-    - platform-tools
-    - tools
-    - build-tools-25.0.2
-    - android-22
-    - android-25
-    - extra-android-support
-    - extra-google-m2repository
-    - extra-android-m2repository
-    - sys-img-armeabi-v7a-android-22
+before_install:
+  - mkdir -p $ANDROID_SDK_ROOT
+  - yes | sdkmanager --sdk_root=$ANDROID_SDK_ROOT "tools" "build-tools;26.0.1" "extras;android;m2repository"
+  - export PATH=${ANDROID_SDK_ROOT}/tools/bin:$PATH
+  - export QEMU_AUDIO_DRV=none
 
-script:
-  - ./gradlew assemble
-
-after_script:
-  # emulator management
-  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
-  - emulator -avd test -no-skin -no-audio -no-window &
+before_script:
+  - cp -r licenses $ANDROID_HOME/
+  - sdkmanager "system-images;android-21;google_apis;armeabi-v7a"
+  - echo no | $ANDROID_SDK_ROOT/tools/bin/avdmanager create avd --force -n test -k "system-images;android-21;google_apis;armeabi-v7a"
+  - adb shell settings put global window_animation_scale 0 &
+  - adb shell settings put global transition_animation_scale 0 &
+  - adb shell settings put global animator_duration_scale 0 &
+  - $ANDROID_HOME/tools/emulator -avd test -no-skin -no-audio -no-window -netfast &
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
-  # tests
-  - ./gradlew --info clean build connectedCheck
-  - ./gradlew testDebugUnitTest
+
+script:
+  - ./gradlew clean assemble testDebugUnitTest connectedAndroidTest
+#  - ./gradlew --info connectedCheck
+#  - ./gradlew testDebugUnitTest
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock

@@ -44,7 +44,9 @@ class MainActivity : AppCompatActivity() {
                 binding.button7, binding.button8, binding.button9).forEach { button ->
             RxView.clicks(button)
                     .subscribe {
-                        field = field.multiply(BigDecimal(10)).plus(BigDecimal(button.tag.toString().toInt()))
+                        field = field
+                                .multiply(BigDecimal(10))
+                                .plus(BigDecimal(button.tag.toString().toInt()))
                         binding.field.setText(formatter.format(field))
                     }
         }
