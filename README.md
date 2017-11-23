@@ -1,7 +1,7 @@
 Kotlin-Espresso-Sample
 ===================================================
 
-[![Build Status](https://travis-ci.org/pot8os/Kotlin-Espresso-sample.svg)](https://travis-ci.org/pot8os/Kotlin-Espresso-sample)
+[![CircleCI](https://circleci.com/gh/pot8os/Kotlin-Espresso-sample/tree/master.svg?style=svg)](https://circleci.com/gh/pot8os/Kotlin-Espresso-sample/tree/master)
 
 This is a simple project for Android Studio using [Kotlin](https://github.com/JetBrains/kotlin) and [Espresso](https://developer.android.com/intl/ja/tools/testing-support-library/index.html#Espresso) for UI tests. It also includes typical unit tests using JUnit4.
 All codes are written in Kotlin :tada:
