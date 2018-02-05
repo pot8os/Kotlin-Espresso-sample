@@ -23,7 +23,7 @@ jobs:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle"}}
       - run:
           name: Run unit tests
-          command: ./gradlew test
+          command: ./gradlew testDebugUnitTest
       - run:
           name: Setup emulator
           command: sdkmanager "system-images;android-24;default;armeabi-v7a" && echo "no" | avdmanager create avd -n test -k "system-images;android-24;default;armeabi-v7a"
@@ -35,10 +35,15 @@ jobs:
           name: Waiting for emulator
           command: |
               circle-android wait-for-boot
+              sleep 30
               adb shell input keyevent 82
+              adb shell svc power stayon true
+              adb shell settings put global window_animation_scale 0
+              adb shell settings put global transition_animation_scale 0
+              adb shell settings put global animator_duration_scale 0
       - run:
           name: Run UI tests
-          command: ./gradlew :app:connectedAndroidTest
+          command: ./gradlew :app:connectedDebugAndroidTest -PdisablePreDex
       - store_artifacts:
           path: app/build/reports
           destination: reports
