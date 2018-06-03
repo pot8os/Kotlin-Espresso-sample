@@ -1,32 +1,65 @@
-# Java Gradle CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-java/ for more details
-#
-version: 2
+version: 2.0
+
 jobs:
-  build:
+  checkout:
     docker:
-      - image: circleci/android:api-26-alpha
-    working_directory: ~/repo
-    environment:
-      # Customize the JVM maximum heap limit
-      JVM_OPTS: -Xmx3200m
-      TERM: dumb
+      - image: circleci/android:api-27-alpha
+    working_directory: ~/Kotlin-Espresso-sample
     steps:
       - checkout
+      - save_cache:
+          key: code-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+          - ~/Kotlin-Espresso-sample
+
+  dependencies:
+    docker:
+      - image: circleci/android:api-27-alpha
+    working_directory: ~/Kotlin-Espresso-sample
+    steps:
+      - restore_cache:
+          key: code-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle"}}
       - run: ./gradlew androidDependencies
       - save_cache:
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle"}}
           paths:
             - ~/.gradle
+            - ~/.m2
+
+  unit_test:
+    docker:
+      - image: circleci/android:api-27-alpha
+    working_directory: ~/Kotlin-Espresso-sample
+    steps:
+      - restore_cache:
+          key: code-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle"}}
       - run:
           name: Run unit tests
           command: ./gradlew testDebugUnitTest
+      - store_artifacts:
+          path: app/build/reports
+          destination: reports
+      - store_test_results:
+          path: app/build/test-results
+
+  inst_test:
+    docker:
+      - image: circleci/android:api-27-alpha
+    working_directory: ~/Kotlin-Espresso-sample
+    environment:
+      JVM_OPTS: -Xmx3200m
+    steps:
+      - restore_cache:
+          key: code-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle"}}
       - run:
           name: Setup emulator
-          command: sdkmanager "system-images;android-24;default;armeabi-v7a" && echo "no" | avdmanager create avd -n test -k "system-images;android-24;default;armeabi-v7a"
+          command: sdkmanager "system-images;android-25;google_apis;armeabi-v7a" && echo "no" | avdmanager create avd -n test -k "system-images;android-25;google_apis;armeabi-v7a"
       - run:
           name: Launch emulator
           command: export LD_LIBRARY_PATH=${ANDROID_HOME}/emulator/lib64:${ANDROID_HOME}/emulator/lib64/qt/lib && emulator64-arm -avd test -noaudio -no-boot-anim -no-window -accel on
@@ -49,3 +82,20 @@ jobs:
           destination: reports
       - store_test_results:
           path: app/build/test-results
+
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - checkout
+      - dependencies:
+          requires:
+            - checkout
+      - unit_test:
+          requires:
+            - dependencies
+# Test using emulator is not supported on CircleCI2
+# https://support.circleci.com/hc/en-us/articles/360000028928-Testing-with-Android-emulator-on-CircleCI-2-0
+#      - inst_test:
+#         requires:
+#           - dependencies
