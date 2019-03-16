@@ -2,14 +2,13 @@
 
 [![CircleCI](https://circleci.com/gh/pot8os/Kotlin-Espresso-sample/tree/master.svg?style=svg)](https://circleci.com/gh/pot8os/Kotlin-Espresso-sample/tree/master)
 
-This is MVP project for Android that uses [Kotlin](https://github.com/JetBrains/kotlin) and [Espresso](https://developer.android.com/intl/ja/tools/testing-support-library/index.html#Espresso) together to run instrument tests. It also includes typical unit tests using [Truth](https://github.com/google/truth) that has developer friendly fluent syntax :tada:
+This is MVP project for Android that uses [Kotlin](https://github.com/JetBrains/kotlin) and [Espresso](https://developer.android.com/intl/ja/tools/testing-support-library/index.html#Espresso) together to run instrument tests. Moreover, it has a test code that implements [Robolectric 4](http://robolectric.org/) that **supports running Instrumentation Tests as unit tests**! :tada:
 
 ## What you can learn from this project
 
-- How to write `UI tests` using Espresso and `unit tests` using Truth
+- How to write `UI tests` using Espresso and `unit tests` using Robolectric :tada:
 - Fundamental and practical way how to write Kotlin
-- Thanks to RxJava, it gets a calculator by [less than 100 lines](https://github.com/pot8os/Kotlin-Espresso-sample/blob/master/app/src/main/kotlin/net/pot8os/kotlintestsample/MainActivity.kt)! :rocket:
-- How to run kotlin with DataBinding and **AndroidX** :tada:
+- Thanks to RxJava, it gets a calculator by [less than 100 lines](https://github.com/pot8os/Kotlin-Espresso-sample/blob/master/app/src/main/kotlin/net/pot8os/kotlintestsample/MainActivity.kt) :rocket:
 
 ## Requirements
 
