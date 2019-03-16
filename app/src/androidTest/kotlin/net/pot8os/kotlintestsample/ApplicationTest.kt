@@ -32,7 +32,7 @@ class ApplicationTest {
     onView(withId(R.id.button_1)).perform(click())
     onView(withId(R.id.button_calc)).perform(click())
     onView(withId(R.id.field))
-      .check(matches(withText("${123 + 321}")))
+        .check(matches(withText("${123 + 321}")))
   }
 
   @Test
@@ -46,7 +46,7 @@ class ApplicationTest {
     onView(withId(R.id.button_3)).perform(click())
     onView(withId(R.id.button_calc)).perform(click())
     onView(withId(R.id.field))
-      .check(matches(withText("${999 - 333}")))
+        .check(matches(withText("${999 - 333}")))
   }
 
   @Test
@@ -61,7 +61,7 @@ class ApplicationTest {
     onView(withId(R.id.button_calc)).perform(click())
     val formatter = DecimalFormat("#,###")
     onView(withId(R.id.field))
-      .check(matches(withText(formatter.format(100 * 200))))
+        .check(matches(withText(formatter.format(100 * 200))))
   }
 
   @Test
@@ -75,6 +75,6 @@ class ApplicationTest {
     onView(withId(R.id.button_0)).perform(click())
     onView(withId(R.id.button_calc)).perform(click())
     onView(withId(R.id.field))
-      .check(matches(withText("${333 / 100.0}")))
+        .check(matches(withText("${333 / 100.0}")))
   }
 }

@@ -8,7 +8,7 @@ This is MVP project for Android that uses [Kotlin](https://github.com/JetBrains/
 
 - How to write `UI tests` using Espresso and `unit tests` using Truth
 - Fundamental and practical way how to write Kotlin
-- Thanks to RxJava, it implements a calculator by [less than 100 lines](https://github.com/pot8os/Kotlin-Espresso-sample/blob/master/app/src/main/kotlin/net/pot8os/kotlintestsample/MainActivity.kt)! :rocket:
+- Thanks to RxJava, it gets a calculator by [less than 100 lines](https://github.com/pot8os/Kotlin-Espresso-sample/blob/master/app/src/main/kotlin/net/pot8os/kotlintestsample/MainActivity.kt)! :rocket:
 - How to run kotlin with DataBinding and **AndroidX** :tada:
 
 ## Requirements
