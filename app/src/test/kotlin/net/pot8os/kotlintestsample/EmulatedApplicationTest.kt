@@ -5,21 +5,21 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
 import java.text.DecimalFormat
 
 /**
- * It's a typical test code for AndroidTest. You can run this as unit tests using Robolectric 4.
- * See also [EmulatedApplicationTest] and build.gradle.
+ * The codebase of this class is all the same with [ApplicationTest] other than a line that starts with `@RunWith`.
+ * Robolectric 4 supports running AndroidTest code as unit testing. You don't need to run an emulator anymore!
  *
- * @author So Nakamura, 2015/12/19
+ * @author So Nakamura, 2019-Mar-16
  */
-@RunWith(AndroidJUnit4::class)
-class ApplicationTest {
+@RunWith(RobolectricTestRunner::class)
+class EmulatedApplicationTest {
 
   @get:Rule
   val activity = ActivityTestRule(MainActivity::class.java)

@@ -38,11 +38,15 @@ android {
     packagingOptions {
         exclude 'META-INF/proguard/androidx-annotations.pro'
     }
+
+    // To run Android relevant tests under test dir.
+    // See also http://robolectric.org/migrating/#project-configuration
+    testOptions.unitTests.includeAndroidResources = true
 }
 
 ext {
     androidx_version = '1.0.2'
-    testrunner_version = '1.1.0'
+    test_version = '1.1.0'
 }
 
 dependencies {
@@ -57,12 +61,23 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxkotlin:2.2.0"
 
     testImplementation "junit:junit:4.12"
-    testImplementation "com.google.truth:truth:0.43"
+    testImplementation "androidx.test.ext:truth:$test_version"
+
+    // Typical configurations for AndroidTest that runs under src/androidTest/
     androidTestImplementation "androidx.annotation:annotation:$androidx_version"
-    androidTestImplementation "androidx.test:runner:$testrunner_version"
-    androidTestImplementation "androidx.test:rules:$testrunner_version"
-    androidTestImplementation "androidx.test.ext:junit:$testrunner_version"
+    androidTestImplementation "androidx.test:runner:$test_version"
+    androidTestImplementation "androidx.test:rules:$test_version"
+    androidTestImplementation "androidx.test.ext:junit:$test_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:3.1.1"
+
+    // Thanks to Robolectric 4, we can run the test code for AndroidTest as unit tests.
+    // This is for test/.../EmulatedApplicationTest.kt
+    testImplementation 'org.robolectric:robolectric:4.2'
+    testImplementation "androidx.annotation:annotation:$androidx_version"
+    testImplementation "androidx.test:runner:$test_version"
+    testImplementation "androidx.test:rules:$test_version"
+    testImplementation "androidx.test.ext:junit:$test_version"
+    testImplementation "androidx.test.espresso:espresso-core:3.1.1"
 }
 
 buildscript {
