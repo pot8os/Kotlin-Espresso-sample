@@ -1,6 +1,6 @@
 package net.pot8os.kotlintestsample
 
-import org.assertj.core.api.Assertions.assertThat
+import com.google.common.truth.Truth.assertThat
 import org.junit.Test
 import java.math.BigDecimal
 

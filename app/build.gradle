@@ -58,7 +58,7 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxkotlin:2.2.0"
 
     testImplementation "junit:junit:4.12"
-    testImplementation "org.assertj:assertj-core:3.11.1"
+    testImplementation "com.google.truth:truth:0.43"
     androidTestImplementation "androidx.annotation:annotation:$androidx_version"
     androidTestImplementation "androidx.test:runner:$testrunner_version"
     androidTestImplementation "androidx.test:rules:$testrunner_version"
