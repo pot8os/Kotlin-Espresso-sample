@@ -5,8 +5,8 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
-import androidx.test.runner.AndroidJUnit4
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -18,9 +18,8 @@ import java.text.DecimalFormat
 @RunWith(AndroidJUnit4::class)
 class ApplicationTest {
 
-  @Rule
-  @JvmField
-  val activity = ActivityTestRule<MainActivity>(MainActivity::class.java)
+  @get:Rule
+  val activity = ActivityTestRule(MainActivity::class.java)
 
   @Test
   fun testAdd() {
@@ -33,7 +32,7 @@ class ApplicationTest {
     onView(withId(R.id.button_1)).perform(click())
     onView(withId(R.id.button_calc)).perform(click())
     onView(withId(R.id.field))
-      .check(matches(withText("${123 + 321}")))
+        .check(matches(withText("${123 + 321}")))
   }
 
   @Test
@@ -47,7 +46,7 @@ class ApplicationTest {
     onView(withId(R.id.button_3)).perform(click())
     onView(withId(R.id.button_calc)).perform(click())
     onView(withId(R.id.field))
-      .check(matches(withText("${999 - 333}")))
+        .check(matches(withText("${999 - 333}")))
   }
 
   @Test
@@ -62,7 +61,7 @@ class ApplicationTest {
     onView(withId(R.id.button_calc)).perform(click())
     val formatter = DecimalFormat("#,###")
     onView(withId(R.id.field))
-      .check(matches(withText(formatter.format(100 * 200))))
+        .check(matches(withText(formatter.format(100 * 200))))
   }
 
   @Test
@@ -76,6 +75,6 @@ class ApplicationTest {
     onView(withId(R.id.button_0)).perform(click())
     onView(withId(R.id.button_calc)).perform(click())
     onView(withId(R.id.field))
-      .check(matches(withText("${333 / 100.0}")))
+        .check(matches(withText("${333 / 100.0}")))
   }
 }

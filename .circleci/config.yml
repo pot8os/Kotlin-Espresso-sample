@@ -1,26 +1,33 @@
-version: 2.0
+version: 2.1
 
-jobs:
-  checkout:
+executors:
+  default:
     docker:
-      - image: circleci/android:api-27-alpha
+      - image: circleci/android:api-28
     working_directory: ~/Kotlin-Espresso-sample
-    steps:
-      - checkout
-      - save_cache:
-          key: code-{{ .Environment.CIRCLE_SHA1 }}
-          paths:
-          - ~/Kotlin-Espresso-sample
 
-  dependencies:
-    docker:
-      - image: circleci/android:api-27-alpha
-    working_directory: ~/Kotlin-Espresso-sample
+commands:
+  restore_caches:
     steps:
       - restore_cache:
           key: code-{{ .Environment.CIRCLE_SHA1 }}
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle"}}
+
+jobs:
+  checkout:
+    executor: default
+    steps:
+      - checkout
+      - save_cache:
+          key: code-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/Kotlin-Espresso-sample
+
+  dependencies:
+    executor: default
+    steps:
+      - restore_caches
       - run: ./gradlew androidDependencies
       - save_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle"}}
@@ -29,14 +36,9 @@ jobs:
             - ~/.m2
 
   unit_test:
-    docker:
-      - image: circleci/android:api-27-alpha
-    working_directory: ~/Kotlin-Espresso-sample
+    executor: default
     steps:
-      - restore_cache:
-          key: code-{{ .Environment.CIRCLE_SHA1 }}
-      - restore_cache:
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle"}}
+      - restore_caches
       - run:
           name: Run unit tests
           command: ./gradlew testDebugUnitTest
@@ -47,16 +49,11 @@ jobs:
           path: app/build/test-results
 
   inst_test:
-    docker:
-      - image: circleci/android:api-27-alpha
-    working_directory: ~/Kotlin-Espresso-sample
+    executor: default
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
-      - restore_cache:
-          key: code-{{ .Environment.CIRCLE_SHA1 }}
-      - restore_cache:
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle"}}
+      - restore_caches
       - run:
           name: Setup emulator
           command: sdkmanager "system-images;android-25;google_apis;armeabi-v7a" && echo "no" | avdmanager create avd -n test -k "system-images;android-25;google_apis;armeabi-v7a"
