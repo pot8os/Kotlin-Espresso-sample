@@ -1,5 +1,6 @@
 package net.pot8os.kotlintestsample
 
+import android.os.Build
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -10,6 +11,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 import java.text.DecimalFormat
 
 /**
@@ -19,6 +21,10 @@ import java.text.DecimalFormat
  * @author So Nakamura, 2019-Mar-16
  */
 @RunWith(RobolectricTestRunner::class)
+// Running Robolectric tests on Android Q requires Java 9.
+// Not sure I can go forward now..
+// https://github.com/robolectric/robolectric/releases/tag/robolectric-4.3
+@Config(sdk = [Build.VERSION_CODES.P])
 class EmulatedApplicationTest {
 
   @get:Rule
