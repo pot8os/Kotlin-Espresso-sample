@@ -12,7 +12,7 @@ This is MVP project for Android that uses [Kotlin](https://github.com/JetBrains/
 
 ## Requirements
 
-- Run with Android Studio 3.3.2 (or newer)
+- Run with Android Studio 3.5.0 (or newer)
 
 ## Target app
 
