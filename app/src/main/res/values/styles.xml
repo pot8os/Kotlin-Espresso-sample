@@ -1,11 +1,32 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
+  <style name="Theme.MyApp" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="android:textColor">@android:color/black</item>
+  </style>
 
+  <style name="BaseButton" parent="Widget.MaterialComponents.Button.TextButton">
+    <item name="android:textSize">20sp</item>
+    <item name="android:textColor">@android:color/black</item>
+    <item name="android:layout_margin">2dp</item>
+    <item name="cornerRadius">5dp</item>
+  </style>
+
+  <style name="DigitButton" parent="BaseButton">
+    <item name="backgroundTint">@color/white70</item>
+  </style>
+
+  <style name="SignButton" parent="BaseButton">
+    <item name="backgroundTint">@android:color/holo_green_light</item>
+  </style>
+
+  <style name="EqualButton" parent="BaseButton">
+    <item name="backgroundTint">@android:color/holo_orange_light</item>
+  </style>
+
+  <style name="AllClearButton" parent="BaseButton">
+    <item name="backgroundTint">@android:color/holo_red_light</item>
+  </style>
 </resources>
