@@ -1,5 +1,19 @@
 <resources>
-    <string name="app_name">kotlin-test-sample</string>
-    <string name="sign_plus">+</string>
-    <string name="sign_equal">=</string>
+  <string name="app_name">kotlin-test-sample</string>
+  <string name="sign_sum">+</string>
+  <string name="sign_sub">-</string>
+  <string name="sign_mul">*</string>
+  <string name="sign_div">/</string>
+  <string name="equal">=</string>
+  <string name="ac">AC</string>
+  <string name="digit_0">0</string>
+  <string name="digit_1">1</string>
+  <string name="digit_2">2</string>
+  <string name="digit_3">3</string>
+  <string name="digit_4">4</string>
+  <string name="digit_5">5</string>
+  <string name="digit_6">6</string>
+  <string name="digit_7">7</string>
+  <string name="digit_8">8</string>
+  <string name="digit_9">9</string>
 </resources>

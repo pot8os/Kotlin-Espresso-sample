@@ -1,51 +1,38 @@
-package net.pot8os.kotlintestsample
+package net.pot8s.kotlintestsample
 
-import android.os.Build
+import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
-import androidx.test.rule.ActivityTestRule
-import org.junit.Rule
+import net.pot8os.kotlintestsample.CalculatorFragment
+import net.pot8os.kotlintestsample.R
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
 import java.text.DecimalFormat
 
 /**
- * The codebase of this class is all the same with [ApplicationTest] other than a line that starts with `@RunWith`.
- * Robolectric 4 supports running AndroidTest code as unit testing. You don't need to run an emulator anymore!
- *
- * @author So Nakamura, 2019-Mar-16
+ * @author So Nakamura, 2020-Feb-15
  */
-@RunWith(RobolectricTestRunner::class)
-// Running Robolectric tests on Android Q requires Java 9.
-// Not sure I can go forward now..
-// https://github.com/robolectric/robolectric/releases/tag/robolectric-4.3
-@Config(sdk = [Build.VERSION_CODES.P])
-class EmulatedApplicationTest {
-
-  @get:Rule
-  val activity = ActivityTestRule(MainActivity::class.java)
+abstract class CalculatorSpec {
 
   @Test
-  fun testAdd() {
+  fun testSum() {
+    launchFragmentInContainer<CalculatorFragment>()
     onView(withId(R.id.button_1)).perform(click())
     onView(withId(R.id.button_2)).perform(click())
     onView(withId(R.id.button_3)).perform(click())
-    onView(withId(R.id.button_add)).perform(click())
+    onView(withId(R.id.button_sum)).perform(click())
     onView(withId(R.id.button_3)).perform(click())
     onView(withId(R.id.button_2)).perform(click())
     onView(withId(R.id.button_1)).perform(click())
     onView(withId(R.id.button_calc)).perform(click())
-    onView(withId(R.id.field))
-        .check(matches(withText("${123 + 321}")))
+    onView(withId(R.id.field)).check(matches(withText("${123 + 321}")))
   }
 
   @Test
   fun testSub() {
+    launchFragmentInContainer<CalculatorFragment>()
     onView(withId(R.id.button_9)).perform(click())
     onView(withId(R.id.button_9)).perform(click())
     onView(withId(R.id.button_9)).perform(click())
@@ -54,36 +41,35 @@ class EmulatedApplicationTest {
     onView(withId(R.id.button_3)).perform(click())
     onView(withId(R.id.button_3)).perform(click())
     onView(withId(R.id.button_calc)).perform(click())
-    onView(withId(R.id.field))
-        .check(matches(withText("${999 - 333}")))
+    onView(withId(R.id.field)).check(matches(withText("${999 - 333}")))
   }
 
   @Test
-  fun testMulti() {
+  fun testMul() {
+    launchFragmentInContainer<CalculatorFragment>()
     onView(withId(R.id.button_1)).perform(click())
     onView(withId(R.id.button_0)).perform(click())
     onView(withId(R.id.button_0)).perform(click())
-    onView(withId(R.id.button_multi)).perform(click())
+    onView(withId(R.id.button_mul)).perform(click())
     onView(withId(R.id.button_2)).perform(click())
     onView(withId(R.id.button_0)).perform(click())
     onView(withId(R.id.button_0)).perform(click())
     onView(withId(R.id.button_calc)).perform(click())
     val formatter = DecimalFormat("#,###")
-    onView(withId(R.id.field))
-        .check(matches(withText(formatter.format(100 * 200))))
+    onView(withId(R.id.field)).check(matches(withText(formatter.format(100 * 200))))
   }
 
   @Test
   fun testDiv() {
+    launchFragmentInContainer<CalculatorFragment>()
     onView(withId(R.id.button_3)).perform(click())
     onView(withId(R.id.button_3)).perform(click())
     onView(withId(R.id.button_3)).perform(click())
-    onView(withId(R.id.button_divide)).perform(click())
+    onView(withId(R.id.button_div)).perform(click())
     onView(withId(R.id.button_1)).perform(click())
     onView(withId(R.id.button_0)).perform(click())
     onView(withId(R.id.button_0)).perform(click())
     onView(withId(R.id.button_calc)).perform(click())
-    onView(withId(R.id.field))
-        .check(matches(withText("${333 / 100.0}")))
+    onView(withId(R.id.field)).check(matches(withText("${333 / 100.0}")))
   }
 }
