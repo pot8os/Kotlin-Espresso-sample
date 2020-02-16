@@ -8,6 +8,7 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import net.pot8os.kotlintestsample.CalculatorFragment
 import net.pot8os.kotlintestsample.R
+import org.junit.Before
 import org.junit.Test
 import java.text.DecimalFormat
 
@@ -16,9 +17,13 @@ import java.text.DecimalFormat
  */
 abstract class CalculatorSpec {
 
+  @Before
+  fun setup() {
+    launchFragmentInContainer<CalculatorFragment>(themeResId = R.style.Theme_MyApp)
+  }
+
   @Test
   fun testSum() {
-    launchFragmentInContainer<CalculatorFragment>()
     onView(withId(R.id.button_1)).perform(click())
     onView(withId(R.id.button_2)).perform(click())
     onView(withId(R.id.button_3)).perform(click())
@@ -32,7 +37,6 @@ abstract class CalculatorSpec {
 
   @Test
   fun testSub() {
-    launchFragmentInContainer<CalculatorFragment>()
     onView(withId(R.id.button_9)).perform(click())
     onView(withId(R.id.button_9)).perform(click())
     onView(withId(R.id.button_9)).perform(click())
@@ -46,7 +50,6 @@ abstract class CalculatorSpec {
 
   @Test
   fun testMul() {
-    launchFragmentInContainer<CalculatorFragment>()
     onView(withId(R.id.button_1)).perform(click())
     onView(withId(R.id.button_0)).perform(click())
     onView(withId(R.id.button_0)).perform(click())
@@ -61,7 +64,6 @@ abstract class CalculatorSpec {
 
   @Test
   fun testDiv() {
-    launchFragmentInContainer<CalculatorFragment>()
     onView(withId(R.id.button_3)).perform(click())
     onView(withId(R.id.button_3)).perform(click())
     onView(withId(R.id.button_3)).perform(click())
