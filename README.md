@@ -1,6 +1,6 @@
 # Kotlin-Espresso-Sample
 
-[![CircleCI](https://circleci.com/gh/pot8os/Kotlin-Espresso-sample/tree/master.svg?style=svg)](https://circleci.com/gh/pot8os/Kotlin-Espresso-sample/tree/master)
+![](https://github.com/pot8os/Kotlin-Espresso-sample/workflows/Android%20CI/badge.svg)
 
 This is MVP project for Android app that is written in [Kotlin](https://github.com/JetBrains/kotlin) and uses [Espresso](https://developer.android.com/intl/ja/tools/testing-support-library/index.html#Espresso) to run both unit and instrumented tests.
 
