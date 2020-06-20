@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">kotlin-test-sample</string>
+  <string name="app_name">Kotlin-Espresso-Sample</string>
   <string name="sign_sum">+</string>
   <string name="sign_sub">-</string>
   <string name="sign_mul">*</string>

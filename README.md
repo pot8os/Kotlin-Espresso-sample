@@ -11,7 +11,7 @@ This is MVP project for Android app that is written in [Kotlin](https://github.c
 
 ## Requirements
 
-- Run with Android Studio 3.5.3 (or newer)
+- Run with Android Studio 4 (or newer)
 
 ## Target app
 
@@ -27,7 +27,7 @@ Requires a connected device to run `Instrumented tests`. It doesn't matter wheth
 
 |   |Instrumented Tests|Unit Tests|
 |---|----------------------|-----------------------|
-|Gradle task name|`connectedAndroidTest`<br/><br/>![Run Task](img/uitask.png)|`testDebugUnitTest`<br/><br/>![Run Unit Test](img/unittask.png)|
+|Gradle task name|`:app:connectedAndroidTest`<br/><br/>![Run Task](img/uitask.png)|`:app:testDebugUnitTest`<br/><br/>![Run Unit Test](img/unittask.png)|
 |Location of test code|`src/androidTest/kotlin`<br/>![Path](img/uitest_path.png)|`src/test/kotlin`<br/>![Path](img/unittest_path.png)|
 
 ## License
