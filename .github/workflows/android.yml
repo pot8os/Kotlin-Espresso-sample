@@ -17,4 +17,4 @@ jobs:
         key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
         restore-keys: ${{ runner.os }}-gradle
     - name: Tests
-      run: ./gradlew testDebugUnitTest
+      run: ./gradlew :app:lintDebug && ./gradlew :app:testDebugUnitTest
