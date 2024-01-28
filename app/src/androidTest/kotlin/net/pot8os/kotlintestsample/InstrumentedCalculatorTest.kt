@@ -1,7 +1,7 @@
 package net.pot8os.kotlintestsample
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import net.pot8s.kotlintestsample.CalculatorSpec
+import net.pot8os.kotlintestsample.CalculatorSpec
 import org.junit.runner.RunWith
 
 /**

@@ -5,11 +5,11 @@ plugins {
 allprojects {
   repositories {
     google()
-    jcenter()
+    mavenCentral()
   }
 }
 
 dependencies {
-  implementation("com.android.tools.build:gradle:4.0.0")
-  implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.72")
+  implementation("com.android.tools.build:gradle:8.2.2")
+  implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22")
 }
