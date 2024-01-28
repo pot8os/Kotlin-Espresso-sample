@@ -1,24 +1,25 @@
 plugins {
   id("com.android.application")
   kotlin("android")
-  kotlin("kapt")
+  id("com.google.devtools.ksp") version "1.9.22-1.0.17" apply false
 }
 
 android {
-  compileSdkVersion(29)
+  namespace = "net.pot8os.kotlintestsample"
+  compileSdk = 34
 
   defaultConfig {
     applicationId = "net.pot8os.kotlintestsample"
-    minSdkVersion(23)
-    targetSdkVersion(29)
+    minSdk = 23
+    targetSdk = 34
     versionCode = 1
     versionName = "1.0"
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
 
   compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
   }
 
   buildTypes {
@@ -40,13 +41,14 @@ android {
   }
 
   kotlinOptions {
-    jvmTarget = "1.8"
+    jvmTarget = "17"
   }
 
   buildFeatures.dataBinding = true
-
-  packagingOptions {
-    exclude("META-INF/proguard/androidx-annotations.pro")
+  packaging {
+    resources {
+      excludes += setOf("META-INF/proguard/androidx-annotations.pro")
+    }
   }
 
   testOptions {
@@ -67,5 +69,5 @@ dependencies {
 
 repositories {
   google()
-  jcenter()
+  mavenCentral()
 }
